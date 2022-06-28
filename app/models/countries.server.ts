@@ -17,32 +17,25 @@ export const getCountries = async (params?: {
 
   const apiPath = region ? `region/${region}` : "all";
   const countries = await (await fetch(`${BASE_URL}/${apiPath}`)).json();
-  const parsedCountries: Country[] = countries.map(
-    ({
-      name: { common: name },
-      population,
-      region,
-      capital,
-      flags: { png: flag },
-      cca3: code,
-    }: any) => ({
-      name,
-      population,
-      region,
-      capital,
-      flag,
-      code,
-    })
-  );
-  const sortCountries = compose(
-    orderBy("name", "asc"),
-    orderBy("capitalCount", "desc")
-  )(parsedCountries) as any as Country[];
+
+  const parsedCountries: Country[] = countries?.map((country: any) => ({
+    name: country.name?.common,
+    population: country.population,
+    region: country.region,
+    capital: country.capital,
+    flag: country.flags?.png,
+    code: country.cca3,
+  }));
+
+  const sortCountries = compose(orderBy("name", "asc"))(
+    parsedCountries
+  ) as any as Country[];
 
   return sortCountries;
 };
 
 export const getCountry = async (code: string): Promise<Country> => {
-  const country = await (await fetch(`${BASE_URL}/alpha/${code}`)).json();
+  const countries = await (await fetch(`${BASE_URL}/alpha/${code}`)).json();
+  const country = countries[0];
   return country;
 };

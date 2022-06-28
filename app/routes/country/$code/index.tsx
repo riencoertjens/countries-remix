@@ -7,7 +7,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function () {
-  const country = useLoaderData().pop();
+  const country = useLoaderData();
 
   return (
     <div>

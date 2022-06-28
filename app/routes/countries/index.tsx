@@ -1,8 +1,8 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import type { Country } from "~/models/countries.server";
 import { getCountries } from "~/models/countries.server";
 import { CountryGrid } from "~/components/country-grid.component";
+import type { Country } from "~/util/types";
 
 export const loader: LoaderFunction = async () => {
   return getCountries();
