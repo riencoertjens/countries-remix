@@ -7,6 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 
 import styles from "./styles/app.css";
@@ -27,6 +28,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <DynamicLinks />
       </head>
       <body className="flex flex-col h-full">
         <header className="w-full shadow-xl flex justify-center z-10 relative">
@@ -45,5 +47,24 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
+  );
+}
+
+const DEFAULT_ICON = "/favicon.ico";
+export function DynamicLinks() {
+  let links = useMatches().flatMap((match) => {
+    let fn = match.handle?.dynamicLinks;
+    if (typeof fn !== "function") return [];
+    return fn({ data: match.data });
+  });
+
+  if (!links.length) return <link rel="icon" href={DEFAULT_ICON} />;
+
+  return (
+    <>
+      {links.map((link) => (
+        <link {...link} key={link.integrity || JSON.stringify(link)} />
+      ))}
+    </>
   );
 }

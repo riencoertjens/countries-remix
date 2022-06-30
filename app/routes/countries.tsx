@@ -3,6 +3,10 @@ import { Outlet, useParams } from "@remix-run/react";
 import { capitalize } from "lodash";
 import { regions } from "~/util/regions";
 
+export const handle = {
+  favicon: "🌍",
+};
+
 export default () => {
   const { region: regionParam } = useParams<{ region: string }>();
   const navigate = useNavigate();
