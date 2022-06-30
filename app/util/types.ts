@@ -1,4 +1,10 @@
-export type Region = "africa" | "americas" | "asia" | "europe" | "oceania";
+export type Region =
+  | "africa"
+  | "americas"
+  | "antarctica"
+  | "asia"
+  | "europe"
+  | "oceania";
 export type Country = {
   name: string;
   code: string;

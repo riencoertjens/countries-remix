@@ -3,6 +3,7 @@ import type { Region } from "./types";
 export const regions: Array<Region> = [
   "africa",
   "americas",
+  "antarctica",
   "asia",
   "europe",
   "oceania",
