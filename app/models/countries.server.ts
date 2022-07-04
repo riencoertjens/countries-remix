@@ -1,7 +1,7 @@
 import { compose, orderBy } from "lodash/fp";
 import invariant from "tiny-invariant";
-import { isRegion } from "~/util/regions";
-import type { Region, Country, CountryDetail } from "~/util/types";
+import { isRegion } from "~/utils/regions";
+import type { Region, Country, CountryDetail } from "~/utils/types";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 

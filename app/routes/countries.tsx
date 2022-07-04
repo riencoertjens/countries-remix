@@ -1,7 +1,7 @@
 import { useNavigate } from "@remix-run/react";
 import { Outlet, useParams } from "@remix-run/react";
 import { capitalize } from "lodash";
-import { regions } from "~/util/regions";
+import { regions } from "~/utils/regions";
 
 export const handle = {
   favicon: "🌍",

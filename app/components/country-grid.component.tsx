@@ -1,4 +1,4 @@
-import type { Country } from "~/util/types";
+import type { Country } from "~/utils/types";
 import { CountryCard } from "./country-card.component";
 
 export const CountryGrid = ({

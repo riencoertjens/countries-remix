@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import type { ReactText } from "react";
-import type { Country } from "~/util/types";
+import type { Country } from "~/utils/types";
 
 export const CountryCard = ({ country }: { country: Country }) => (
   <Link

@@ -2,7 +2,7 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getCountry } from "~/models/countries.server";
-import type { CountryDetail } from "~/util/types";
+import type { CountryDetail } from "~/utils/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
   const country = await getCountry(params.code);
