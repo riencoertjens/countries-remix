@@ -1,7 +1,7 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { Authenticator } from "~/utils/authenticator.class.server";
+import { Authenticator } from "~/services/authenticator.class.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const auth = new Authenticator(request);

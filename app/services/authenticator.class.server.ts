@@ -1,7 +1,7 @@
 import type { Session } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { base64Encode } from "./base64";
+
 import {
   accessTokenCookie,
   Cookies,
@@ -9,8 +9,9 @@ import {
   refreshTokenCookie,
 } from "./cookies.server";
 import { getEnv } from "./get-env.server";
-import { commitSession, getSession } from "./session.server";
 import { v4 as uuid } from "uuid";
+import { base64Encode } from "~/utils/base64";
+import { getSession, commitSession } from "./session.server";
 
 const cognitoDomain = getEnv("COGNITO_DOMAIN");
 const clientId = getEnv("COGNITO_CLIENT_ID");

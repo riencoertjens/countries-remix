@@ -1,7 +1,7 @@
 import type { User } from "@prisma/client";
 import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { Authenticator } from "~/utils/authenticator.class.server";
+import { Authenticator } from "~/services/authenticator.class.server";
 
 type LoaderData = { users: Array<User> };
 
